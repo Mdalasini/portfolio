@@ -3,108 +3,372 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>James Murigi - Fullstack Developer</title>
+        <title>James Murigi - Software Engineer</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-        <link rel="stylesheet" href="styles.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+                    sans-serif;
+                line-height: 1.6;
+                color: #1a1a1a;
+                background: #fafafa;
+                padding: 2rem 1rem;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: white;
+                padding: 3rem 2.5rem;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            header {
+                margin-bottom: 2.5rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 2px solid #e5e5e5;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+                font-weight: 600;
+                margin-bottom: 0.25rem;
+            }
+
+            .subtitle {
+                font-size: 1.125rem;
+                color: #666;
+                margin-bottom: 1rem;
+            }
+
+            .contact {
+                display: flex;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                font-size: 0.9rem;
+            }
+
+            .contact a {
+                color: #2563eb;
+                text-decoration: none;
+            }
+
+            .contact a:hover {
+                text-decoration: underline;
+            }
+
+            section {
+                margin-bottom: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1.25rem;
+                color: #1a1a1a;
+            }
+
+            .project,
+            .education-item {
+                margin-bottom: 1.75rem;
+                padding-bottom: 1.75rem;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .project:last-child,
+            .education-item:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .project-title {
+                font-size: 1.125rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .project-title a {
+                color: #1a1a1a;
+                text-decoration: none;
+            }
+
+            .project-title a:hover {
+                color: #2563eb;
+            }
+
+            .icon {
+                font-size: 0.875rem;
+                color: #666;
+            }
+
+            .description {
+                color: #4a4a4a;
+                margin-bottom: 0.75rem;
+            }
+
+            .tech {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            .tech-tag {
+                background: #f0f0f0;
+                padding: 0.25rem 0.75rem;
+                border-radius: 3px;
+                font-size: 0.85rem;
+                color: #4a4a4a;
+            }
+
+            .education-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 0.25rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .school {
+                font-weight: 600;
+                font-size: 1.05rem;
+            }
+
+            .year {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .degree {
+                color: #4a4a4a;
+                margin-bottom: 0.25rem;
+            }
+
+            .covered {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.75rem;
+            }
+
+            .skill {
+                background: #f8f8f8;
+                padding: 0.75rem;
+                border-radius: 4px;
+                text-align: center;
+                font-size: 0.95rem;
+                color: #4a4a4a;
+            }
+
+            .export-btn {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                background: #2563eb;
+                color: white;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                border-radius: 6px;
+                font-size: 0.95rem;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: background 0.2s;
+            }
+
+            .export-btn:hover {
+                background: #1d4ed8;
+            }
+
+            @media (max-width: 640px) {
+                body {
+                    padding: 1rem 0.5rem;
+                }
+
+                .container {
+                    padding: 2rem 1.5rem;
+                }
+
+                h1 {
+                    font-size: 1.75rem;
+                }
+
+                .export-btn {
+                    bottom: 1rem;
+                    right: 1rem;
+                    padding: 0.65rem 1.25rem;
+                    font-size: 0.875rem;
+                }
+            }
+
+            @media print {
+                body {
+                    background: white;
+                    padding: 0;
+                }
+
+                .container {
+                    box-shadow: none;
+                    padding: 0;
+                }
+
+                .export-btn {
+                    display: none;
+                }
+            }
+        </style>
     </head>
     <body>
-        <button class="export-btn" onclick="exportPDF()">Export to PDF</button>
-
-        <header>
-            <h1>James Murigi</h1>
-            <p class="role">Fullstack Developer</p>
-        </header>
-
-        <section>
-            <h2>Education</h2>
-            <div class="project green">
-                <h3>Catholic University of East Africa</h3>
-                <p>Bachelor of Science in Computer Science</p>
-                <p class="tech">2024</p>
-            </div>
-            <div class="project green">
-                <h3>Moringa School</h3>
-                <p>Data Science Bootcamp</p>
-                <p>Comprehensive training in AI/ML and data visualization using Power BI</p>
-                <p class="tech">2024</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-
-            <div class="project">
-                <h3>Better FDR</h3>
-                <p>
-                    An improved fixture difficulty rating for Fantasy Premier
-                    League.
-                </p>
-                <p class="tech">Technologies: TypeScript, SQLite</p>
-                <p>
-                    <a href="https://better-fdr.vercel.app/" target="_blank"
-                        >better-fdr.vercel.app</a
+        <div class="container" id="portfolio">
+            <header>
+                <h1>James Murigi</h1>
+                <div class="subtitle">Software Engineer</div>
+                <div class="contact">
+                    <a href="mailto:mdalasini06@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                        mdalasini06@gmail.com</a
                     >
-                </p>
-            </div>
-
-            <div class="project">
-                <h3>Data My FPL</h3>
-                <p>
-                    Scripts for sourcing data for Better FDR and migrating to
-                    database.
-                </p>
-                <p class="tech">Technologies: Python, TypeScript, SQLite</p>
-                <p>
-                    <a
-                        href="https://github.com/Mdalasini/data-my-fpl"
-                        target="_blank"
-                        >github.com/Mdalasini/data-my-fpl</a
-                    >
-                </p>
-            </div>
-
-            <div class="project">
-                <h3>RAG Open-Book Exam Simulator</h3>
-                <p>
-                    I wanted to test how well my exam prep would work for someone who hadn't taken the class, so I built a system that uses only my notes to answer exam questions.
-                </p>
-                <p class="tech">Technologies: Python, RAG, Ollama, Vector Embeddings</p>
-                <p>
-                    <a
-                        href="https://github.com/Mdalasini/open-book-simulator"
-                        target="_blank"
-                        >github.com/Mdalasini/open-book-simulator</a
-                    >
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Contact</h2>
-            <div class="contact-links">
-                <div class="contact-item">
-                    <span>GitHub:</span>
-                    <a href="https://github.com/Mdalasini" target="_blank"
-                        >github.com/Mdalasini</a
+                    <a href="https://github.com/Mdalasini" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        github.com/Mdalasini</a
                     >
                 </div>
-                <div class="contact-item">
-                    <span>Email:</span>
-                    <a href="mailto:mdalasini06@gmail.com"
-                        >mdalasini06@gmail.com</a
-                    >
+            </header>
+
+            <section>
+                <h2>Projects</h2>
+                <div class="project">
+                    <div class="project-title">
+                        <a href="https://better-fdr.vercel.app/" target="_blank"
+                            >Better FDR</a
+                        >
+                        <span class="icon">🌐</span>
+                    </div>
+                    <div class="description">
+                        An improved fixture difficulty rating for Fantasy
+                        Premier League.
+                    </div>
+                    <div class="tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
                 </div>
-            </div>
-        </section>
+
+                <div class="project">
+                    <div class="project-title">
+                        <a
+                            href="https://github.com/Mdalasini/data-my-fpl"
+                            target="_blank"
+                            >Data My FPL</a
+                        >
+                        <span class="icon">💻</span>
+                    </div>
+                    <div class="description">
+                        Scripts for sourcing data for Better FDR and migrating
+                        to database.
+                    </div>
+                    <div class="tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">
+                        <a
+                            href="https://github.com/Mdalasini/open-book-simulator"
+                            target="_blank"
+                            >RAG Open-Book Exam Simulator</a
+                        >
+                        <span class="icon">💻</span>
+                    </div>
+                    <div class="description">
+                        Built a retrieval pipeline (chunking, embeddings, vector
+                        search) with a self-grading evaluation loop.
+                    </div>
+                    <div class="tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">Vector Embeddings</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="school">
+                            Catholic University of East Africa
+                        </div>
+                        <div class="year">2024</div>
+                    </div>
+                    <div class="degree">
+                        Bachelor of Science in Computer Science
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="school">Moringa School</div>
+                        <div class="year">2024</div>
+                    </div>
+                    <div class="degree">Data Science Bootcamp</div>
+                    <div class="covered">
+                        Comprehensive training in data science fundamentals and
+                        data visualization using Power BI
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill">Python</div>
+                    <div class="skill">TypeScript</div>
+                    <div class="skill">SQLite</div>
+                    <div class="skill">RAG/AI</div>
+                    <div class="skill">Data Analysis</div>
+                    <div class="skill">Web Development</div>
+                </div>
+            </section>
+        </div>
+
+        <button class="export-btn" onclick="exportToPDF()">
+            Export to PDF
+        </button>
 
         <script>
-            function exportPDF() {
-                const element = document.body;
+            function exportToPDF() {
+                const element = document.getElementById("portfolio");
                 const opt = {
                     margin: 0.5,
                     filename: "James_Murigi_Portfolio.pdf",
                     image: { type: "jpeg", quality: 0.98 },
-                    html2canvas: { scale: 2 },
+                    html2canvas: { scale: 2, useCORS: true },
                     jsPDF: {
                         unit: "in",
                         format: "letter",
